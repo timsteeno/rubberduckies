@@ -1,0 +1,26 @@
+name: Upload to S3 using OIDC
+
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  upload-to-s3:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::296526780949:role/GitHub-Actions-S3-Upload
+          aws-region: us-east-1  # or your preferred region
+
+      - name: Upload to S3
+        run: |
+          aws s3 sync ./math s3://math.rubberducki.es
