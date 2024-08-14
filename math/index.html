@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Flashcards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Math Flashcards</h1>
+        <div id="game-area">
+            <div id="game-container" style="display: none;">
+                <div id="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+                <div id="progress-text">Question <span id="current-question">1</span> of 10</div>
+                <div id="flashcard">
+                    <div id="question"></div>
+                    <input type="text" id="answer-input" placeholder="Enter your answer">
+                    <button id="submit-answer">Submit</button>
+                </div>
+            </div>
+            <div id="card-stack"></div>
+        </div>
+        <div id="start-screen">
+            <button id="start-game">Start Game</button>
+        </div>
+        <div id="end-screen" style="display: none;">
+            <h2>Game Over</h2>
+            <p>Your score: <span id="final-score"></span></p>
+            <button id="play-again">Play Again</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
