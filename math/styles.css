@@ -175,3 +175,21 @@ button:active {
 .incorrect {
     background-color: var(--incorrect-color);
 }
+
+#error-container {
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+#error-container p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#return-home {
+    margin-top: 1rem;
+}
