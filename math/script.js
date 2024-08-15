@@ -18,6 +18,7 @@ function startGame() {
 
     document.getElementById('end-screen').style.display = 'none';
     document.getElementById('start-screen').style.display = 'none';
+    document.getElementById('game-area').style.display = 'flex';
     document.getElementById('game-container').style.display = 'block';
 
     updateProgressBar();
@@ -134,7 +135,7 @@ function calculateScore() {
 function endGame() {
     const score = calculateScore();
     document.getElementById('final-score').textContent = `${score}%`;
-    document.getElementById('game-container').style.display = 'none';
+    document.getElementById('game-area').style.display = 'none';
     document.getElementById('end-screen').style.display = 'block';
     displayFinalCards();
     confetti({

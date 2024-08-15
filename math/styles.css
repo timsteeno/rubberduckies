@@ -194,11 +194,16 @@ button:active {
     margin-top: 1rem;
 }
 
+#end-screen {
+    width: 100%; /* Added this line */
+}
+
 #final-cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
     margin-bottom: 1rem;
+    width: 100%; /* Added this line */
 }
 
 .final-card {
