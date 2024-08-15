@@ -193,3 +193,43 @@ button:active {
 #return-home {
     margin-top: 1rem;
 }
+
+#final-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.final-card {
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100px;
+}
+
+.final-card.incorrect {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-color: var(--incorrect-color);
+}
+
+.final-card-question,
+.final-card-answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.final-card-answer {
+    color: var(--correct-color);
+    border-top: 1px solid #eee;
+}
+
+.final-card.incorrect .final-card-answer {
+    color: var(--incorrect-color);
+}

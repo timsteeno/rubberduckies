@@ -48,9 +48,10 @@ function submitAnswer() {
     const timeTaken = (Date.now() - questionStartTime) / 1000;
 
     const isCorrect = checkAnswer(userAnswer, flashcard.answer);
+    flashcard.isCorrect = isCorrect; // Add this line to store the correctness
     updateFlashcardStats(flashcard, isCorrect, timeTaken);
     showFeedback(isCorrect, flashcard);
-
+ 
     currentQuestionIndex++;
 
     if (currentQuestionIndex < currentGame.length) {
@@ -135,10 +136,37 @@ function endGame() {
     document.getElementById('final-score').textContent = `${score}%`;
     document.getElementById('game-container').style.display = 'none';
     document.getElementById('end-screen').style.display = 'block';
+    displayFinalCards();
     confetti({
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 }
+    });
+}
+
+function displayFinalCards() {
+    const finalCardsGrid = document.getElementById('final-cards-grid');
+    finalCardsGrid.innerHTML = '';
+
+    currentGame.forEach((flashcard, index) => {
+        const cardElement = document.createElement('div');
+        cardElement.className = 'final-card';
+        if (!flashcard.isCorrect) {
+            cardElement.classList.add('incorrect');
+        }
+
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'final-card-question';
+        katex.render(flashcard.question, questionDiv, { throwOnError: false });
+
+        const answerDiv = document.createElement('div');
+        answerDiv.className = 'final-card-answer';
+        katex.render(flashcard.answer, answerDiv, { throwOnError: false });
+
+        cardElement.appendChild(questionDiv);
+        cardElement.appendChild(answerDiv);
+
+        finalCardsGrid.appendChild(cardElement);
     });
 }
 
